@@ -4,11 +4,38 @@
 .c3-region.regionY2 {
     fill: green;
 }
-.chart{
-    /* width: 80%;
-    margin: auto; */
+.app{
+    width: 80%;
+    margin: auto;
 }
 .cash-chart .text{
     display: flex;
     justify-content: space-between;
+}
+.z3-chart{
+    margin-bottom: 4rem;
+}
+
+/* contact */
+.contact-form{
+    display: none;
+    width: 80%;
+    margin: auto;
+}
+.contact-btn{
+    border: 1px solid gray;
+}
+.ctr{
+    margin: .4rem;
+}
+.ctr p{
+    font-size: 2rem;
+}
+form input{
+    border: none;
+    border-bottom: 1px solid gray;
+    background: #E9E9E9;;
+}
+form input:focus{
+    outline: none;
 }

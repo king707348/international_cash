@@ -1,11 +1,26 @@
+// chart pie
+var chart1 = c3.generate({
+    bindto:'#chart1',
+    data:{
+        columns: [
+            ['Employer Sponsored', 29261],
+            ['Regional', 23372],
+            ['Skilled Independent',12986],
+            ['Business Innovation and Investment',4420],
+            ['Global Talent(Independent)',4109]
+        ],
+        type : 'pie',
+    }
+})
 
 
-const url ='javascript/data/cash_export.json'
-axios.get(`${url}`).then((res) => {
+
+
+const url ='../javascript/data/cash_export.json'
+axios.get(url).then((res) => {
     const data = res.data
     let years = [],NTD = [],AUD = [],CNY = [],SGD = [],EUR = []
     for(let i in data){
-        
         years.push(Object.values(data[i])[0]) //年度
         NTD.push(Object.values(data[i])[1]) //台幣
         AUD.push(Math.round(Object.values(data[i])[8]/NTD[i]*1000)) //澳幣
@@ -25,9 +40,7 @@ axios.get(`${url}`).then((res) => {
     SGD.unshift('英鎊')
     EUR = EUR.slice(8,EUR.length)
     EUR.unshift('歐元')
-
-    // console.log(AUD)
-    // chart
+    // chart line
     var chart = c3.generate({
         padding:{
             right:10,
@@ -39,19 +52,6 @@ axios.get(`${url}`).then((res) => {
                 years,AUD,CNY,SGD,EUR
             ],
         },
-        axis:{
-            x:{
-                // min:2000,
-            }
-        },
-        grid:{
-            x:{
-                show:true
-            },
-            y:{
-                show:true
-            }
-        },
         regions: [
             // x
             {axis: 'x', start: 2000, end: 2003, class: 'regionX'},
@@ -62,7 +62,6 @@ axios.get(`${url}`).then((res) => {
             {axis: 'y', end: 120, class: 'regionY'},
             {axis: 'y', start: 60, class: 'regionY2'},
         ],
-
     });
 }).catch((err) => {
     console.log(err)
