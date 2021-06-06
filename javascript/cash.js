@@ -16,7 +16,7 @@ var chart1 = c3.generate({
 
 
 
-const url ='../javascript/data/cash_export.json'
+const url ='javascript/data/cash_export.json'
 axios.get(url).then((res) => {
     const data = res.data
     let years = [],NTD = [],AUD = [],CNY = [],SGD = [],EUR = []
